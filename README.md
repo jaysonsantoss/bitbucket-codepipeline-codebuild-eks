@@ -1,11 +1,11 @@
 # bitbucket-codepipeline-codebuild-eks
 ci/cd project with the tools mentioned in the title
 
-Esse projeto tem como objetivo mostar os passos necessarios para para criar uma estrutura de ci/cd utilizando o bitbucket, codepipeline, codebuild, ECS e EKS.
+This project aims to show the necessary steps to create a ci/cd structure using bitbucket, codepipeline, codebuild, ECS and EKS.
 
 
-# Pré requisitos
-Previamente para execução desse projeto, se faz necessario que voce ja tenha as seguintes coisas:
+# Requirements
+Prior to executing this project, it is necessary that you already have the following things:
 
 Account AWS
 
@@ -15,45 +15,22 @@ Cluster EKS
 
 
 
-# Descrições de serviços que serão utilizados
+# Descriptions of services that will be used
 
 **Pipeline de AWS**
 
-Totalmente Gerenciado
+Fully Managed
 
-Construído para Escala
+Built for Scale
 
-Integrar com serviços AWS
+Integrate with AWS services
 
-Seguro
-
-**Bitbucket**
-
-O Bitbucket é uma ferramenta de hospedagem e colaboração de código baseada em Git, criada para equipes profissionais de engenharia de software e gestão de projetos. A marca BitBucket foi adquirida pela Atlassian em 2010, o que garante às suas ferramentas integração total com os demais serviços da empresa e ainda workflows do Jira e do Trello.
-
-Desenvolvedor -> Bitbucket -> AWS CodeBuild -> Teste -> Implementar
-
+Secure
 
 **AWS CodeBuild**
 
-O AWS CodeBuild é um serviço de integração contínua totalmente gerenciado que compila o código-fonte, executa testes e produz pacotes de software prontos para implantação. Com CodeBuild, você não precisa provisionar, gerenciar e dimensionar seus próprios servidores de construção. CodeBuild escala continuamente e processa várias compilações simultaneamente, para que suas compilações não fiquem esperando em uma fila. Você pode começar rapidamente usando ambientes de construção predefinidos ou pode criar ambientes de construção personalizados que usam suas próprias ferramentas de construção. Com CodeBuild, você é cobrado por minuto pelos recursos de computação que usa.
-
-*Serviço AWS CI*
-
-Semelhante a Jenkins
-Escala automaticamente
-Desenvolvedor -> Repositório de código -> AWS CodeBuild -> Teste -> Implementar
+AWS CodeBuild is a fully managed continuous integration service that compiles source code, runs tests, and produces software packages that are ready to deploy. With CodeBuild, you don’t need to provision, manage, and scale your own build servers. CodeBuild scales continuously and processes multiple builds concurrently, so your builds are not left waiting in a queue. You can get started quickly by using prepackaged build environments, or you can create custom build environments that use your own build tools. With CodeBuild, you are charged by the minute for the compute resources you use.
 
 **AWS CodePipeline**
 
-O AWS CodePipeline é um serviço de entrega contínua totalmente gerenciado que ajuda a automatizar seus pipelines de lançamento para aplicativos rápidos e confiáveis ​​e atualizações de infraestrutura. CodePipeline automatiza as fases de construção, teste e implantação de seu processo de lançamento sempre que houver uma alteração no código, com base no modelo de lançamento que você definir. Isso permite que você forneça recursos e atualizações de forma rápida e confiável. Você pode integrar facilmente o AWS CodePipeline com serviços de terceiros, como GitHub ou com seu próprio plug-in personalizado.
-
-Fase de construção, teste e implantação
-
-Orquestrar todos os componentes de Bitbucket e CodeBuild
-
-Entrega Rápida
-
-Totalmente Gerenciado
-
-Fácil integração com AWS e ferramentas de terceiros
+AWS CodePipeline is a fully managed continuous delivery service that helps you automate your release pipelines for fast and reliable application and infrastructure updates. CodePipeline automates the build, test, and deploy phases of your release process every time there is a code change, based on the release model you define. This enables you to rapidly and reliably deliver features and updates. You can easily integrate AWS CodePipeline with third-party services such as GitHub or with your own custom plugin.
