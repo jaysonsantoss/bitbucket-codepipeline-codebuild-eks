@@ -296,6 +296,11 @@ The ECR service serves to store the images created in our project. we will creat
     - check a box "Start pipeline on source code change" if you want Automatically start the pipeline when a source code change occurs. If disabled, the pipeline will only run if started manually or on a schedule.
   - Output artifact format
     - select "full clone"
+    - click Next
+   
+   > Step 3 (Add build step)
+   - Build Provider
+     - select "AWS Coodebuild"
 
 
 
