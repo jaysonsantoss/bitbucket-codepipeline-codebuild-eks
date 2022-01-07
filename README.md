@@ -234,9 +234,9 @@ Resources:
 - add the content below to "mapRoles" by changing the "rolearn" to the one copied in the step of creating this role in **IAM and Setup**
 ```
 - groups:
-        - system:masters
-        rolearn: arn:aws:iam::000000000000:role/EKSKubectl
-        username: build
+  - system:masters
+    rolearn: arn:aws:iam::000000000000:role/EKSKubectl
+    username: build
 ```
 - Save file
 
