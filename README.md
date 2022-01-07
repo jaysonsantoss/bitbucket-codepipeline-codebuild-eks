@@ -104,7 +104,7 @@ Skip to the third step of the process and access a name for your policy, in our 
 CloudFormation is, above all, a service managed by AWS that helps organize the solutions created in the cloud, it is a fundamental part to replicate configurations between development, approval and production environments of customers, but it can also be used to replicate reusable solutions between different customers.
 
 - Go to Cloudformation
-- Click on build stack in the right corner of the screen(whith new features)
+- Click on "build stack" in the right corner of the screen(whith new features)
 > step 1 (Specify templates)
 - Create template in Designer
 - Click Template (bottom of the screen)
@@ -233,8 +233,8 @@ Resources:
 - Click the Cloud with a arrow up in the top left corner to save the stack
 - Next
 - In "specify stack details" fill in the following way:
-  - Stack name = Add stack name, in my example(ekscicdiamstack)
-  - Parameters = Name of the role you created in the step "IAM and Setup", in our case EKSkubectl
+  - **Stack name** - Add stack name, in my example(ekscicdiamstack)
+  - **Parameters** - Name of the role you created in the step "IAM and Setup", in our case EKSkubectl
 > step 2 (specify stack details)
 - we haven't changed anything, click next
 > step 3 (configure stack options)
