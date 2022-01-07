@@ -61,6 +61,25 @@ In this step we will create the rules so that we can use the kubectl command in 
 ```
 - Skip to the third step of the process and access a name for your policy, in our example the name will be "kubectlrolepolicy" responsible for a description if necessary and click on "create policy"
 
+Now let's create a policy to be able to use codestar, the app required for communication between bitbucket and codepipeline
+
+- Go to IAM, in the left pane click on policy.
+- In the next step click on "create police" and add the content below in the json option.
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": "codestar-connections:UseConnection",
+            "Resource": "arn:aws:codestar-connections:sa-east-1:441973536412:connection/d4bd3634-0c2e-4132-897b-acc82aae9af1"
+        }
+    ]
+}
+```
+Skip to the third step of the process and access a name for your policy, in our example the name will be "connection-permissions-bitbucket" responsible for a description if necessary and click on "create policy"
+
 - Back to the main IAM panel, select the role option.
 - Click on "create role" and select the option "Another AWS account"
 - Enter your account ID. you can view your id in the upper left corner of the aws page or by executing the command below:
@@ -266,27 +285,28 @@ The ECR service serves to store the images created in our project. we will creat
 - Select service Codepipeline
 - Click create pipeline
 > step 1 (Choose pipeline settings)
+- *Pipeline Settings*
 
- - pipeline name = Enter the name of the pipeline. Once created, you cannot edit the pipeline name.
- - service function = Select "Existing Service Role"
- - Role name = select codepipeline role created in the [Cloudformation process](#teste) - Ex (ekscicdiamstack-CodePipelineServiceRole-X0X0X00X0X0X)
-  - click next
-  > step 2 (add source step)
-  - *origin*
-  - source provider 
-    -This is where you stored the pipeline input artifacts. choose Bitbucket
-  - connection
-    - click "Connect Bitbucket"
+  - **pipeline name** - Enter the name of the pipeline. Once created, you cannot edit the pipeline name.
+  - **service function** - Select "Existing Service Role"
+  - **Role name** - select codepipeline role created in the [Cloudformation process](#teste) - Ex (ekscicdiamstack-CodePipelineServiceRole-X0X0X00X0X0X)
+  - **click next**
+  
+  
+> step 2 (add source step)
+- *origin*
+  - **source provider** - This is where you stored the pipeline input artifacts. choose Bitbucket
+  - **connection** - click "Connect Bitbucket"
     - In the new tab that will open, with the title "Create a Connection", give a name to the connection that we are going to create with bitbucket and click on "connect to Bitbucket"
     - In the new tab that will open, titled "Connect to Bitbucket", click on "Install a new app". one more tab will open like the screen below:
     
-- ![2](https://user-images.githubusercontent.com/33422115/148586400-08e3b667-8a9e-4844-a2d9-e9ff4853a837.jpg)
+    - ![2](https://user-images.githubusercontent.com/33422115/148586400-08e3b667-8a9e-4844-a2d9-e9ff4853a837.jpg)
  
-  - Select your workspace and click "Grant access"
-  - again on the screen #Connect to Bitbucket", click "to connect"
-  - again at the source, we will see the following message in a green box:
+    - Select your workspace and click "Grant access"
+    - again on the screen #Connect to Bitbucket", click "to connect"
+    - again at the source, we will see the following message in a green box:
 
-![3](https://user-images.githubusercontent.com/33422115/148586813-e5093dbf-6387-4c63-be7b-aac2fe73d356.jpg)
+    ![3](https://user-images.githubusercontent.com/33422115/148586813-e5093dbf-6387-4c63-be7b-aac2fe73d356.jpg)
 
   - repository name
     - Choose a repository in your Bitbucket account.
@@ -298,44 +318,52 @@ The ECR service serves to store the images created in our project. we will creat
     - select "full clone"
     - click Next
    
-   > Step 3 (Add build step)
-   *Compilation* 
+> Step 3 (Add build step)
+- *Compilation* 
 
-  - Build Provider
-    - select "AWS Coodebuild"
-  - Region
-    - Select a region for this service
-  - Project name
-    - click "Create project"
-    - na nova tela que se abrir preencher confirme descrito abaixo:
+  - **Build Provider** - select "AWS Coodebuild"
+  - **Region** - Select a region for this service
+  - **Project name**- click "Create project", On the new screen that opens, fill in, confirm the description below:
 
-    *project configuration*
-  -  Project name -  project name must contain 2 to 255 characters. 
-   -  Description - Descrição do seu projeto
+     *project configuration*
+      -  Project name -  project name must contain 2 to 255 characters. 
+      -  Description - Descrição do seu projeto
 
-    *Environment*
-  - Environment image - select managed image
-  - Operational system - select "Ubuntu"
-  - Runtime(s) - select "Standart"
-  - Image - select "AWS/codebuild/standart:5.0"
-  - Image version - select "Always use the latest image for this version of  the runtime" 
-  - Privileged - select checkbox
-  - service function - select "Existing Service Role"
-  - Role name - select codepipeline role created in the [Cloudformation process](#teste)- Ex (ekscicdiamstack-CodeBuildServiceRole-X0X0X00X0X0X)
-  - click on "Additional setup" to open more options and go to the "environment variables" part
-  - adicione as 5 variaveis abaixo alterando de acordo com o seu projeto:
-    - REPOSITORY_URI= 441973536412.dkr.ecr.eu-west-1.amazonaws.com/- aws-pipeline-repo
-    - REPOSITORY_NAME=aws-pipeline
-    - REPOSITORY_BRANCH=main
-    - EKS_CLUSTER_NAME=EKS-Workshop
-    - EKS_KUBECTL_ROLE_ARN=arn:aws:iam::000000000000:role/EKSKubectl
+      *Environment*
+      - **Environm*ent image** - select managed image
+      - **Operational system** - select "Ubuntu"
+      - **Runtime(s)** - select "Standart"
+      - **Image** - select "AWS/codebuild/standart:5.0"
+      - **Image version** - select "Always use the latest image for this version of  the runtime" 
+      - **Privileged** - select checkbox
+      - **service function** - select "Existing Service Role"
+      - **Role name** - select codepipeline role created in the [Cloudformation process](#teste)- Ex (ekscicdiamstack-CodeBuildServiceRole-X0X0X00X0X0X)
     
-    *Buildspec*
-  - Build Specifications
-    - select "Use a buildspec file"
-  
-  - everything else can be default
-  - click "Continue to CodePipeline"
+      *Buildspec*
+       - **Build Specifications** - select "Use a buildspec file"
+       - **everything else can be default**
+       - click "Continue to CodePipeline"
+  -----------     
+
+  - **Environment variables - optional** - click "Add environment" 
+     - add the 5 variables below changing according to your project:
+       - REPOSITORY_URI= 441973536412.dkr.ecr.eu-west-1.amazonaws.com/
+       - aws-pipeline-repo
+       - REPOSITORY_NAME=aws-pipeline
+       - REPOSITORY_BRANCH=main
+       - EKS_CLUSTER_NAME=EKS-Workshop
+       - EKS_KUBECTL_ROLE_ARN=arn:aws:iam::000000000000:role/EKSKubectl
+  - **Build Type** - Select "sigle build"
+  - click "Next"
+
+> Step 4 (Add deployment stage)
+- *Deploy*
+   - click in "Skip deploy stage"
+
+> Step 5 (Review)
+- click "Create Pipeline"
+
+
 
  
 ￼
