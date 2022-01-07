@@ -263,6 +263,41 @@ The ECR service serves to store the images created in our project. we will creat
 
 **CodePipeline**
 
+- Select service Codepipeline
+- Click create pipeline
+> step 1 (Choose pipeline settings)
+
+ - pipeline name = Enter the name of the pipeline. Once created, you cannot edit the pipeline name.
+ - service function = Select "Existing Service Role"
+ - Role name = select codepipeline role created in the Cloudformation process - Ex (ekscicdiamstack-CodePipelineServiceRole-X0X0X00X0X0X)
+  - click next
+  > step 2 (add source step)
+  - *origin*
+  - source provider 
+    -This is where you stored the pipeline input artifacts. choose Bitbucket
+  - connection
+    - click "Connect Bitbucket"
+    - In the new tab that will open, with the title "Create a Connection", give a name to the connection that we are going to create with bitbucket and click on "connect to Bitbucket"
+    - In the new tab that will open, titled "Connect to Bitbucket", click on "Install a new app". one more tab will open like the screen below:
+
+    imagem
+
+    - Select your workspace and click "Grant access"
+    - again on the screen #Connect to Bitbucket", click "to connect"
+    - again at the source, we will see the following message in a green box:
+
+    imagem
+
+  - repository name
+    - Choose a repository in your Bitbucket account.
+  - branch name
+    - Choose a repository branch.
+  - Change detection options
+    - check a box "Start pipeline on source code change" if you want Automatically start the pipeline when a source code change occurs. If disabled, the pipeline will only run if started manually or on a schedule.
+  - Output artifact format
+    - select "full clone"
+
+
 
 
 
