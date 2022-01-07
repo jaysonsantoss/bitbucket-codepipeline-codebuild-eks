@@ -279,14 +279,14 @@ The ECR service serves to store the images created in our project. we will creat
     - click "Connect Bitbucket"
     - In the new tab that will open, with the title "Create a Connection", give a name to the connection that we are going to create with bitbucket and click on "connect to Bitbucket"
     - In the new tab that will open, titled "Connect to Bitbucket", click on "Install a new app". one more tab will open like the screen below:
+    
+- ![2](https://user-images.githubusercontent.com/33422115/148586400-08e3b667-8a9e-4844-a2d9-e9ff4853a837.jpg)
+ 
+  - Select your workspace and click "Grant access"
+  - again on the screen #Connect to Bitbucket", click "to connect"
+  - again at the source, we will see the following message in a green box:
 
-    imagem
-
-    - Select your workspace and click "Grant access"
-    - again on the screen #Connect to Bitbucket", click "to connect"
-    - again at the source, we will see the following message in a green box:
-
-    imagem
+![3](https://user-images.githubusercontent.com/33422115/148586813-e5093dbf-6387-4c63-be7b-aac2fe73d356.jpg)
 
   - repository name
     - Choose a repository in your Bitbucket account.
