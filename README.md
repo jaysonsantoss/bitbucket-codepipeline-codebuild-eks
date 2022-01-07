@@ -221,6 +221,26 @@ Resources:
 > step 3 (configure stack options)
 - under Capabilities, select "i acknowledge that AWS CloudFormation might create IAM resources."
 - Create stack
+- resources on the tab, copy for later use CodeBuildServiceRole and CodePipelineServiceRole:
+  - ekscicdiamstack-CodeBuildServiceRole-X0X0X00X0X0X
+  - ekscicdiamstack-CodePipelineServiceRole-X0X0X00X0X0X
+
+# Edit Configmap
+
+- On your terminal with access to your EKS, edit your
+```
+# kubectl edit -n kube-system configmap/aws-auth
+```
+- add the content below to "mapRoles" by changing the "rolearn" to the one copied in the step of creating this role in ** IAM and Setup **
+```
+- groups:
+        - system:masters
+        rolearn: arn:aws:iam::000000000000:role/EKSKubectl
+        username: build
+``
+- Save file
+
+
 
 
 
