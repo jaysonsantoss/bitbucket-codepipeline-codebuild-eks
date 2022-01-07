@@ -269,7 +269,7 @@ The ECR service serves to store the images created in our project. we will creat
 
  - pipeline name = Enter the name of the pipeline. Once created, you cannot edit the pipeline name.
  - service function = Select "Existing Service Role"
- - Role name = select codepipeline role created in the Cloudformation process - Ex (ekscicdiamstack-CodePipelineServiceRole-X0X0X00X0X0X)
+ - Role name = select codepipeline role created in the [Cloudformation process](#teste) - Ex (ekscicdiamstack-CodePipelineServiceRole-X0X0X00X0X0X)
   - click next
   > step 2 (add source step)
   - *origin*
@@ -321,7 +321,7 @@ The ECR service serves to store the images created in our project. we will creat
   - Image version - select "Always use the latest image for this version of  the runtime" 
   - Privileged - select checkbox
   - service function - select "Existing Service Role"
-  - Role name - select codepipeline role created in the Cloudformation process - Ex (ekscicdiamstack-CodeBuildServiceRole-X0X0X00X0X0X)
+  - Role name - select codepipeline role created in the [Cloudformation process](#teste)- Ex (ekscicdiamstack-CodeBuildServiceRole-X0X0X00X0X0X)
   - click on "Additional setup" to open more options and go to the "environment variables" part
   - adicione as 5 variaveis abaixo alterando de acordo com o seu projeto:
     - REPOSITORY_URI= 441973536412.dkr.ecr.eu-west-1.amazonaws.com/- aws-pipeline-repo
