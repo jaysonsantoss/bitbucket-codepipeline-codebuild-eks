@@ -240,6 +240,20 @@ Resources:
 ```
 - Save file
 
+# Set Pipeline
+
+**Bitbucket**
+
+In our test example we will deploy a web page with nginx. to work, our bitbucket project needs to have the following files:
+
+  - buildspec.yml - source code compilation specification files
+  - Dockerfile - Dockerfile is a text file with instructions to create our docker image
+  - hello-k8s.yml - manifest file containing our service and deployment
+  - index.html - nginx default page that will go up in our example
+
+
+
+
 
 
 
