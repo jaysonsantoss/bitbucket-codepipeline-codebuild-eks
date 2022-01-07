@@ -221,7 +221,7 @@ Resources:
 > step 3 (configure stack options)
 - under Capabilities, select "i acknowledge that AWS CloudFormation might create IAM resources."
 - Create stack
-- resources on the tab, copy for later use CodeBuildServiceRole and CodePipelineServiceRole:
+- <a name="teste"></a> resources on the tab, copy for later use CodeBuildServiceRole and CodePipelineServiceRole:
   - ekscicdiamstack-CodeBuildServiceRole-X0X0X00X0X0X
   - ekscicdiamstack-CodePipelineServiceRole-X0X0X00X0X0X
 
@@ -299,9 +299,46 @@ The ECR service serves to store the images created in our project. we will creat
     - click Next
    
    > Step 3 (Add build step)
-   - Build Provider
-     - select "AWS Coodebuild"
+   *Compilation* 
 
+  - Build Provider
+    - select "AWS Coodebuild"
+  - Region
+    - Select a region for this service
+  - Project name
+    - click "Create project"
+    - na nova tela que se abrir preencher confirme descrito abaixo:
+
+    *project configuration*
+  -  Project name -  project name must contain 2 to 255 characters. 
+   -  Description - Descrição do seu projeto
+
+    *Environment*
+  - Environment image - select managed image
+  - Operational system - select "Ubuntu"
+  - Runtime(s) - select "Standart"
+  - Image - select "AWS/codebuild/standart:5.0"
+  - Image version - select "Always use the latest image for this version of  the runtime" 
+  - Privileged - select checkbox
+  - service function - select "Existing Service Role"
+  - Role name - select codepipeline role created in the Cloudformation process - Ex (ekscicdiamstack-CodeBuildServiceRole-X0X0X00X0X0X)
+  - click on "Additional setup" to open more options and go to the "environment variables" part
+  - adicione as 5 variaveis abaixo alterando de acordo com o seu projeto:
+    - REPOSITORY_URI= 441973536412.dkr.ecr.eu-west-1.amazonaws.com/- aws-pipeline-repo
+    - REPOSITORY_NAME=aws-pipeline
+    - REPOSITORY_BRANCH=main
+    - EKS_CLUSTER_NAME=EKS-Workshop
+    - EKS_KUBECTL_ROLE_ARN=arn:aws:iam::000000000000:role/EKSKubectl
+    
+    *Buildspec*
+  - Build Specifications
+    - select "Use a buildspec file"
+  
+  - everything else can be default
+  - click "Continue to CodePipeline"
+
+ 
+￼
 
 
 
