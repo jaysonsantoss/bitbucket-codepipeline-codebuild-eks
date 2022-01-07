@@ -251,6 +251,19 @@ In our test example we will deploy a web page with nginx. to work, our bitbucket
   - hello-k8s.yml - manifest file containing our service and deployment
   - index.html - nginx default page that will go up in our example
 
+**ECR**
+
+The ECR service serves to store the images created in our project. we will create a repository in the steps below:
+
+- Select the ECR service, click on "Repositories".
+- click in "Create Repository"
+- In visibility settings, select "Private"
+- add a name to your repository, in my example(aws-pipeline)
+- click create repository
+
+**CodePipeline**
+
+
 
 
 
