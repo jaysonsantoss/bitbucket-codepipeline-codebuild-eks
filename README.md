@@ -317,7 +317,8 @@ The ECR service serves to store the images created in our project. we will creat
     - again on the screen #Connect to Bitbucket", click "to connect"
     - again at the source, we will see the following message in a green box:
 
-    ![3](https://user-images.githubusercontent.com/33422115/148586813-e5093dbf-6387-4c63-be7b-aac2fe73d356.jpg)
+    ![green checkbox](https://user-images.githubusercontent.com/33422115/148785548-9473ba48-0428-4e53-afa2-8ccfbcf4f4b7.png)
+
 
     >#########################ATTENTION!######################
     > go back to IAM and change codestar's launch policy with your "arn:aws:codestar" generated in that process.
