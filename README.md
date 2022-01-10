@@ -44,7 +44,7 @@ AWS CodePipeline is a fully managed continuous delivery service that helps you a
 
 1. ## **Permission**
 
-**IAM and Setup**
+1.1. **IAM and Setup**
 
 In this step we will create the rules so that we can use the kubectl command in our EKS cluster.
 
@@ -101,8 +101,8 @@ Skip to the third step of the process and access a name for your policy, in our 
 - Add a name to your role and a description if necessary. in our example the policy name will be EKSkubectl.
 - again on the IAM home screen, click on role, search for and select your role to access its summary
 - Copy Role ARN (arn:aws:iam::000000000000:role/EKSKubectl)
-
-2. **Create IAM roles via cloudformation**
+____
+1.2 **Create IAM roles via cloudformation**
 
 CloudFormation is, above all, a service managed by AWS that helps organize the solutions created in the cloud, it is a fundamental part to replicate configurations between development, approval and production environments of customers, but it can also be used to replicate reusable solutions between different customers.
 
@@ -246,8 +246,8 @@ Resources:
 - <a name="teste"></a> resources on the tab, copy for later use CodeBuildServiceRole and CodePipelineServiceRole:
   - ekscicdiamstack-CodeBuildServiceRole-X0X0X00X0X0X
   - ekscicdiamstack-CodePipelineServiceRole-X0X0X00X0X0X
-
-**Edit Configmap**
+____
+1.3. **Edit Configmap**
 
 - On your terminal with access to your EKS, edit your
 ```
@@ -264,7 +264,7 @@ Resources:
 ____
   2.  ## **Set Pipeline**
 
-**Bitbucket**
+2.1. **Bitbucket**
 
 In our test example we will deploy a web page with nginx. to work, our bitbucket project needs to have the following files:
 
@@ -277,7 +277,7 @@ In our test example we will deploy a web page with nginx. to work, our bitbucket
 >
 >All files described here are available in this repository..
 
-**ECR**
+2.2. **ECR**
 
 The ECR service serves to store the images created in our project. we will create a repository in the steps below:
 
@@ -287,7 +287,7 @@ The ECR service serves to store the images created in our project. we will creat
 - add a name to your repository, in my example(aws-pipeline)
 - click create repository
 
-**CodePipeline**
+2.3. **CodePipeline**
 
 - Select service Codepipeline
 - Click create pipeline
