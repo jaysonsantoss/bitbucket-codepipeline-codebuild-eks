@@ -50,7 +50,7 @@ In this step we will create the rules so that we can use the kubectl command in 
 
 - Go to IAM, in the left pane click on policy.
 - In the next step click on "create police" and add the content below in the json option.
-```
+``` json
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -71,7 +71,7 @@ Now let's create a policy to be able to use codestar, the app required for commu
 - Go to IAM, in the left pane click on policy.
 - In the next step click on "create police" and add the content below in the json option.
 
-```
+``` json
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -91,7 +91,7 @@ Skip to the third step of the process and access a name for your policy, in our 
 - Back to the main IAM panel, select the role option.
 - Click on "create role" and select the option "Another AWS account"
 - Enter your account ID. you can view your id in the upper left corner of the aws page or by executing the command below:
-```
+``` json
 # aws sts get-caller-identity
 
 {
@@ -118,7 +118,7 @@ CloudFormation is, above all, a service managed by AWS that helps organize the s
 - Click Template (bottom of the screen)
 - On the screen that opens, select the "Template" option in the lower tab of the "Parameters" option
 - Pass the content below in the json option:
-```
+```yml
 ---
 AWSTemplateFormatVersion: 2010-09-09
 
@@ -259,7 +259,7 @@ ____
 # kubectl edit -n kube-system configmap/aws-auth
 ```
 - add the content below to "mapRoles" by changing the "rolearn" to the one copied in the step of creating this role in **IAM and Setup**
-```
+```yml
 - groups:
   - system:masters
     rolearn: arn:aws:iam::000000000000:role/EKSKubectl
