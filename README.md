@@ -1,31 +1,32 @@
 # bitbucket-codepipeline-codebuild-eks
+
 ci/cd project with the tools mentioned in the title
 
 This project aims to show the necessary steps to create a ci/cd structure using bitbucket, codepipeline, codebuild, ECS and EKS.
 
 
 # Requirements
+
 Prior to executing this project, it is necessary that you already have the following things:
 
-Account AWS
+* Account AWS
 
-Account Bitbucket
+* Account Bitbucket
 
-Cluster EKS
-
+* Cluster EKS
 
 
 # Descriptions of services that will be used
 
 **Pipeline de AWS**
+  
+* Fully Managed
 
-Fully Managed
+* Built for Scale
 
-Built for Scale
+* Integrate with AWS services
 
-Integrate with AWS services
-
-Secure
+* Secure
 
 **Bitbucket**
 
@@ -40,6 +41,8 @@ AWS CodeBuild is a fully managed continuous integration service that compiles so
 AWS CodePipeline is a fully managed continuous delivery service that helps you automate your release pipelines for fast and reliable application and infrastructure updates. CodePipeline automates the build, test, and deploy phases of your release process every time there is a code change, based on the release model you define. This enables you to rapidly and reliably deliver features and updates. You can easily integrate AWS CodePipeline with third-party services such as GitHub or with your own custom plugin.
 
 # Step by step
+
+1. ## **Permission**
 
 **IAM and Setup**
 
@@ -99,7 +102,7 @@ Skip to the third step of the process and access a name for your policy, in our 
 - again on the IAM home screen, click on role, search for and select your role to access its summary
 - Copy Role ARN (arn:aws:iam::000000000000:role/EKSKubectl)
 
-**Create IAM roles via cloudformation**
+2. **Create IAM roles via cloudformation**
 
 CloudFormation is, above all, a service managed by AWS that helps organize the solutions created in the cloud, it is a fundamental part to replicate configurations between development, approval and production environments of customers, but it can also be used to replicate reusable solutions between different customers.
 
@@ -258,8 +261,8 @@ Resources:
     username: build
 ```
 - Save file
-
-# Set Pipeline
+____
+  2.  ## **Set Pipeline**
 
 **Bitbucket**
 
@@ -269,6 +272,10 @@ In our test example we will deploy a web page with nginx. to work, our bitbucket
   - Dockerfile - Dockerfile is a text file with instructions to create our docker image
   - hello-k8s.yml - manifest file containing our service and deployment
   - index.html - nginx default page that will go up in our example
+
+>[!TIP]  
+>
+>All files described here are available in this repository..
 
 **ECR**
 
@@ -362,6 +369,8 @@ The ECR service serves to store the images created in our project. we will creat
 
 > Step 5 (Review)
 - click "Create Pipeline"
+
+
 
 
 
