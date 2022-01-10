@@ -44,7 +44,7 @@ AWS CodePipeline is a fully managed continuous delivery service that helps you a
 
 1. ## **Permission**
 
-1.1. **IAM and Setup**
+1.1. **Permission EKS**
 
 In this step we will create the rules so that we can use the kubectl command in our EKS cluster.
 
@@ -64,6 +64,8 @@ In this step we will create the rules so that we can use the kubectl command in 
 ```
 - Skip to the third step of the process and access a name for your policy, in our example the name will be "kubectlrolepolicy" responsible for a description if necessary and click on "create policy"
 
+1.2. **Permission of CODESTAR**
+
 Now let's create a policy to be able to use codestar, the app required for communication between bitbucket and codepipeline
 
 - Go to IAM, in the left pane click on policy.
@@ -81,6 +83,9 @@ Now let's create a policy to be able to use codestar, the app required for commu
     ]
 }
 ```
+>##########################ATTENTION!###############################
+>you need to replace "Resource with arn: aws: codestar-connections", you will get yours in step 2.3 of the pipeline
+
 Skip to the third step of the process and access a name for your policy, in our example the name will be "connection-permissions-bitbucket" responsible for a description if necessary and click on "create policy"
 
 - Back to the main IAM panel, select the role option.
@@ -273,8 +278,7 @@ In our test example we will deploy a web page with nginx. to work, our bitbucket
   - hello-k8s.yml - manifest file containing our service and deployment
   - index.html - nginx default page that will go up in our example
 
->[!TIP]  
->
+
 >All files described here are available in this repository..
 
 2.2. **ECR**
@@ -314,6 +318,9 @@ The ECR service serves to store the images created in our project. we will creat
     - again at the source, we will see the following message in a green box:
 
     ![3](https://user-images.githubusercontent.com/33422115/148586813-e5093dbf-6387-4c63-be7b-aac2fe73d356.jpg)
+
+    >#########################ATTENTION!######################
+    > go back to IAM and change codestar's launch policy with your "arn:aws:codestar" generated in that process.
 
   - repository name
     - Choose a repository in your Bitbucket account.
@@ -369,6 +376,13 @@ The ECR service serves to store the images created in our project. we will creat
 
 > Step 5 (Review)
 - click "Create Pipeline"
+- With that we will have our pipeline ready and it will start the process automatically. it is possible to directly follow the main screen of condepipeline.
+
+_____
+
+# Sumary
+
+This document sought to briefly explain each process to be performed to use the resources described here to generate an automated pipeline for deploying containers in an EKS cluster on amazon, any suggestion will be welcome.
 
 
 
