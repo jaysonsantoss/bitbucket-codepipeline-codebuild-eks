@@ -311,9 +311,16 @@ The ECR service serves to store the images created in our project. we will creat
 
 ![create-bitbucket](https://user-images.githubusercontent.com/33422115/149011528-93acc505-3df4-45fc-9883-e3c80c18fe5b.png)
 
+  - In the new tab, fill in as shown in the image below:
 
-    - Select you workspace
-    - 1 - click "Grant access"
+- CREATE-BITBUCKET-2
+
+  - select "install app"
+  
+-IMAGE 
+
+  - Select you workspace
+  - 1 - click "Grant access"
 
 - Click create pipeline
 > step 1 (Choose pipeline settings)
