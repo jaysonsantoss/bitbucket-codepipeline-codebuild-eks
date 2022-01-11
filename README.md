@@ -294,15 +294,24 @@ The ECR service serves to store the images created in our project. we will creat
 2.3. **CodePipeline**
 
 *create connection whith Bitbucket*
+
 - Select service Codepipeline
 - Click on "Settings" and select "connections"
-imagem
+
+![codepipeline-2](https://user-images.githubusercontent.com/33422115/149011172-fec35be0-58ca-47bd-8b63-e90c0cf102e4.png)
+
 - click "create connection"
-- imagem
+
+![codepipeline-3](https://user-images.githubusercontent.com/33422115/149011355-df0efef3-68ce-40f3-805a-a513fb383431.png)
+
+
   - 1 - Select a provider = Bitbucket
   - 2 - connection namw = enter a name for the connection
   - 3 - Click "Connect to Bibucket"
-  - imagem
+
+![create-bitbucket](https://user-images.githubusercontent.com/33422115/149011528-93acc505-3df4-45fc-9883-e3c80c18fe5b.png)
+
+
     - Select you workspace
     - 1 - click "Grant access"
 
