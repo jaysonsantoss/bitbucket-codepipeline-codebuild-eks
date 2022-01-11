@@ -312,17 +312,26 @@ The ECR service serves to store the images created in our project. we will creat
 ![create-bitbucket](https://user-images.githubusercontent.com/33422115/149011528-93acc505-3df4-45fc-9883-e3c80c18fe5b.png)
 
   - In the new tab, fill in as shown in the image below:
-
-- CREATE-BITBUCKET-2
-
   - select "install app"
-  
--IMAGE 
+
+- ![codepipeline-6](https://user-images.githubusercontent.com/33422115/149014039-55a9d7f0-87ee-46d2-a929-08fe7aefdee2.png)
 
   - Select you workspace
   - 1 - click "Grant access"
 
-- Click create pipeline
+-![CODEPIPELINE 7](https://user-images.githubusercontent.com/33422115/149014239-9a5903d9-abef-4f22-939b-5b8e05d179e8.png)
+
+
+- Click "connect"
+
+![CODEPIPELINE 8](https://user-images.githubusercontent.com/33422115/149015032-307a5ef8-63b4-438f-9599-00b60196dc9b.png)
+
+- Then we will have our connection created, note your ARN to create the IAM policy to release this ARN
+
+![CODEPIPELINE 9](https://user-images.githubusercontent.com/33422115/149015257-6f246971-aed6-465f-a75a-25750d94e54a.png)
+
+
+
 > step 1 (Choose pipeline settings)
 - *Pipeline Settings*
 
