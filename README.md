@@ -64,29 +64,7 @@ In this step we will create the rules so that we can use the kubectl command in 
 ```
 - Skip to the third step of the process and access a name for your policy, in our example the name will be "kubectlrolepolicy" responsible for a description if necessary and click on "create policy"
 
-1.2. **Permission of CODESTAR**
-
-Now let's create a policy to be able to use codestar, the app required for communication between bitbucket and codepipeline
-
-- Go to IAM, in the left pane click on policy.
-- In the next step click on "create police" and add the content below in the json option.
-
-``` json
-{
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Effect": "Allow",
-            "Action": "codestar-connections:UseConnection",
-            "Resource": "arn:aws:codestar-connections:sa-east-1:441973536412:connection/d4bd3634-0c2e-4132-897b-acc82aae9af1"
-        }
-    ]
-}
-```
->##########################ATTENTION!###############################
->you need to replace "Resource with arn: aws: codestar-connections", you will get yours in step 2.3 of the pipeline
-
-Skip to the third step of the process and access a name for your policy, in our example the name will be "connection-permissions-bitbucket" responsible for a description if necessary and click on "create policy"
+1.2. **Create role**
 
 - Back to the main IAM panel, select the role option.
 - Click on "create role" and select the option "Another AWS account"
@@ -107,7 +85,7 @@ Skip to the third step of the process and access a name for your policy, in our 
 - again on the IAM home screen, click on role, search for and select your role to access its summary
 - Copy Role ARN (arn:aws:iam::000000000000:role/EKSKubectl)
 ____
-1.2 **Create IAM roles via cloudformation**
+1.3 **Create IAM roles via cloudformation**
 
 CloudFormation is, above all, a service managed by AWS that helps organize the solutions created in the cloud, it is a fundamental part to replicate configurations between development, approval and production environments of customers, but it can also be used to replicate reusable solutions between different customers.
 
@@ -252,7 +230,7 @@ Resources:
   - ekscicdiamstack-CodeBuildServiceRole-X0X0X00X0X0X
   - ekscicdiamstack-CodePipelineServiceRole-X0X0X00X0X0X
 ____
-1.3. **Edit Configmap**
+1.4. **Edit Configmap**
 
 - On your terminal with access to your EKS, edit your
 ```
@@ -330,6 +308,30 @@ The ECR service serves to store the images created in our project. we will creat
 
 ![CODEPIPELINE 9](https://user-images.githubusercontent.com/33422115/149015257-6f246971-aed6-465f-a75a-25750d94e54a.png)
 
+*Create policy*
+
+
+Now let's create a policy to be able to use codestar, the app required for communication between bitbucket and codepipeline
+
+- Go to IAM, in the left pane click on policy.
+- In the next step click on "create police" and add the content below in the json option.
+
+``` json
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": "codestar-connections:UseConnection",
+            "Resource": "arn:aws:codestar-connections:sa-central-1:XXXXXXXXXXXX:connection/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX"
+        }
+    ]
+}
+```
+>##########################ATTENTION!###############################
+>add your ARN replacing the above
+
+Skip to the third step of the process and access a name for your policy, in our example the name will be "connection-permissions-bitbucket" responsible for a description if necessary and click on "create policy"
 
 
 > step 1 (Choose pipeline settings)
