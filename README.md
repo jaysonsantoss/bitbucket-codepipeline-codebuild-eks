@@ -314,8 +314,10 @@ The ECR service serves to store the images created in our project. we will creat
 
 Now let's create a policy to be able to use codestar, the app required for communication between bitbucket and codepipeline
 
-- Go to **IAM**, in the left pane click on **policy**.
-- In the next step click on **"create police"** and add the content below in the json option.
+- Go to **IAM**, in the left pane click on **policies**.
+- In the next step click on **"create policy"** and add the content below in the json option.
+>**[ATTENTION!]**
+> add your ARN replacing the above
 
 ``` json
 {
@@ -329,8 +331,6 @@ Now let's create a policy to be able to use codestar, the app required for commu
     ]
 }
 ```
->**[ATTENTION!]**
-> add your ARN replacing the above
 
 - Skip to the third step of the process and access a name for your policy, in our example the name will be "connection-permissions-bitbucket" responsible for a description if necessary and click on **"create policy"**
 
