@@ -271,9 +271,7 @@ The ECR service serves to store the images created in our project. we will creat
 - add a name to your repository, in my example(aws-pipeline)
 - click **create repository**
 
-2.3. **CodePipeline**
-
-1.1. **create connection whith Bitbucket**
+2.3 **create connection whith Bitbucket(codestar)**
 
 - Select service Codepipeline
 - Click on **"Settings"** and select **"connections"**
@@ -334,6 +332,10 @@ Now let's create a policy to be able to use codestar, the app required for commu
 
 - Skip to the third step of the process and access a name for your policy, in our example the name will be "connection-permissions-bitbucket" responsible for a description if necessary and click on **"create policy"**
 
+2.4. **CodePipeline**
+
+- Select service **"Codepipeline"**
+- Select **"Create pipeline"**
 
 > step 1 (Choose pipeline settings)
 ###### Pipeline Settings
