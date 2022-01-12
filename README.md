@@ -310,7 +310,7 @@ The ECR service serves to store the images created in our project. we will creat
 
 ![CODEPIPELINE 9](https://user-images.githubusercontent.com/33422115/149015257-6f246971-aed6-465f-a75a-25750d94e54a.png)
 
-1.2. *Create policy*
+1.2. **Create policy**
 
 Now let's create a policy to be able to use codestar, the app required for communication between bitbucket and codepipeline
 
@@ -336,7 +336,7 @@ Now let's create a policy to be able to use codestar, the app required for commu
 
 
 > step 1 (Choose pipeline settings)
-- *Pipeline Settings*
+###### Pipeline Settings
 
   - **pipeline name** - Enter the name of the pipeline. Once created, you cannot edit the pipeline name.
   - **service function** - Select "Existing Service Role"
@@ -345,7 +345,7 @@ Now let's create a policy to be able to use codestar, the app required for commu
   
   
 > step 2 (add source step)
-- *origin*
+###### origin
 
   - **source provider** - This is where you stored the pipeline input artifacts. choose Bitbucket
   - **connection** - click "Connect Bitbucket"
@@ -363,60 +363,57 @@ Now let's create a policy to be able to use codestar, the app required for commu
     > ATTENTION!
     > go back to IAM and change codestar's launch policy with your **"arn:aws:codestar"** generated in that process.
 
-   - repository name
-   - Choose a repository in your Bitbucket account.
-   - branch name
-   - Choose a repository branch.
+   - **repository name** - Choose a repository in your Bitbucket account.
+   - **branch name** - Choose a repository branch.
    - Change detection options
    - check a box "Start pipeline on source code change" if you want Automatically start the pipeline when a source code change occurs. If disabled, the pipeline will only run if started manually or on a schedule.
-   - Output artifact format
-   - select "full clone"
-   - click Next
+   - **Output artifact format**- select **"full clone"**
+   - click **"Next"**
    
 > Step 3 (Add build step)
-- *Compilation* 
+###### Compilation 
 
-  - **Build Provider** - select "AWS Coodebuild"
+  - **Build Provider** - select **"AWS Coodebuild"**
   - **Region** - Select a region for this service
-  - **Project name**- click "Create project", On the new screen that opens, fill in, confirm the description below:
+  - **Project name**- click **"Create project"**, On the new screen that opens, fill in, confirm the description below:
 
      *project configuration*
-      -  Project name -  project name must contain 2 to 255 characters. 
-      -  Description - Descrição do seu projeto
+      -  **Project name** -  project name must contain 2 to 255 characters. 
+      -  **Description** - Descrição do seu projeto
 
       *Environment*
-      - **Environm*ent image** - select managed image
-      - **Operational system** - select "Ubuntu"
-      - **Runtime(s)** - select "Standart"
-      - **Image** - select "AWS/codebuild/standart:5.0"
-      - **Image version** - select "Always use the latest image for this version of  the runtime" 
+      - **Environm*ent image** - select **"managed image"**
+      - **Operational system** - select **"Ubuntu"**
+      - **Runtime(s)** - select **"Standart"**
+      - **Image** - select **"AWS/codebuild/standart:5.0"**
+      - **Image version** - select **"Always use the latest image for this version of  the runtime"** 
       - **Privileged** - select checkbox
-      - **service function** - select "Existing Service Role"
+      - **service function** - select **"Existing Service Role"**
       - **Role name** - select codepipeline role created in the [Cloudformation process](#teste)- Ex (ekscicdiamstack-CodeBuildServiceRole-X0X0X00X0X0X)
     
       *Buildspec*
        - **Build Specifications** - select "Use a buildspec file"
        - **everything else can be default**
-       - click "Continue to CodePipeline"
-  -----------     
-
-  - **Environment variables - optional** - click "Add environment" 
-     - add the 5 variables below changing according to your project:
-       - REPOSITORY_URI= 441973536412.dkr.ecr.eu-west-1.amazonaws.com/
-       - aws-pipeline-repo
-       - REPOSITORY_NAME=aws-pipeline
-       - REPOSITORY_BRANCH=main
-       - EKS_CLUSTER_NAME=EKS-Workshop
-       - EKS_KUBECTL_ROLE_ARN=arn:aws:iam::000000000000:role/EKSKubectl
-  - **Build Type** - Select "sigle build"
-  - click "Next"
+       - click **"Continue to CodePipeline"**
+  
+      *Environment variables- optional* 
+       - click **"Add environment"** 
+       - add the 5 variables below changing according to your project:
+         - REPOSITORY_URI= 441973536412.dkr.ecr.eu-west-1.amazonaws.com/
+         - aws-pipeline-repo
+         - REPOSITORY_NAME=aws-pipeline
+         - REPOSITORY_BRANCH=main
+         - EKS_CLUSTER_NAME=EKS-Workshop
+         - EKS_KUBECTL_ROLE_ARN=arn:aws:iam::000000000000:role/EKSKubectl
+  - **Build Type** - Select **"sigle build"**
+  - click **"Next"**
 
 > Step 4 (Add deployment stage)
 - *Deploy*
-   - click in "Skip deploy stage"
+   - click in **"Skip deploy stage"**
 
 > Step 5 (Review)
-- click "Create Pipeline"
+- click **"Create Pipeline"**
 - With that we will have our pipeline ready and it will start the process automatically. it is possible to directly follow the main screen of condepipeline.
 
 _____
