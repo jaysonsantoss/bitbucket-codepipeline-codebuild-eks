@@ -9,11 +9,11 @@ This project aims to show the necessary steps to create a ci/cd structure using 
 
 Prior to executing this project, it is necessary that you already have the following things:
 
-* Account AWS
+* **Account AWS
 
-* Account Bitbucket
+* **Account Bitbucket
 
-* Cluster EKS
+* **Cluster EKS**
 
 
 # Descriptions of services that will be used
@@ -48,8 +48,8 @@ AWS CodePipeline is a fully managed continuous delivery service that helps you a
 
 In this step we will create the rules so that we can use the kubectl command in our EKS cluster.
 
-- Go to IAM, in the left pane click on policy.
-- In the next step click on "create police" and add the content below in the json option.
+- Go to IAM, in the left pane click on **policy.
+- In the next step click on **"create police"** and add the content below in the json option.
 ``` json
 {
     "Version": "2012-10-17",
@@ -62,14 +62,14 @@ In this step we will create the rules so that we can use the kubectl command in 
     ]
 }
 ```
-- Skip to the third step of the process and access a name for your policy, in our example the name will be "kubectlrolepolicy" responsible for a description if necessary and click on "create policy"
+- Skip to the third step of the process and access a name for your policy, in our example the name will be "kubectlrolepolicy" responsible for a description if necessary and click on **"create policy"**
 
 1.2. **Create role**
 
 - Back to the main IAM panel, select the role option.
 - Click on "create role" and select the option "Another AWS account"
 - Enter your account ID. you can view your id in the upper left corner of the aws page or by executing the command below:
-``` json
+``` bash
 # aws sts get-caller-identity
 
 {
@@ -78,11 +78,11 @@ In this step we will create the rules so that we can use the kubectl command in 
     "Arn": "arn:aws:iam::000000000000:user/xxxxx.xxx"
 }`
 ```
-- click next after entering you account ID.
+- click **"next"** after entering you account ID.
 - In this new tab, filter by the name of your previously created policy and select it to add our role.
 ![image](https://user-images.githubusercontent.com/33422115/148550143-ba5e6967-c3b7-42a9-9adc-97a109fbf3ee.png)
 - Add a name to your role and a description if necessary. in our example the policy name will be EKSkubectl.
-- again on the IAM home screen, click on role, search for and select your role to access its summary
+- again on the IAM home screen, click on **"role"**, search for and select your role to access its summary
 - Copy Role ARN (arn:aws:iam::000000000000:role/EKSKubectl)
 ____
 1.3 **Create IAM roles via cloudformation**
@@ -90,12 +90,12 @@ ____
 CloudFormation is, above all, a service managed by AWS that helps organize the solutions created in the cloud, it is a fundamental part to replicate configurations between development, approval and production environments of customers, but it can also be used to replicate reusable solutions between different customers.
 
 - Go to Cloudformation
-- Click on "build stack" in the right corner of the screen(whith new features)
+- Click on **"build stack"** in the right corner of the screen(whith new features)
 > step 1 (Specify templates)
 - Create template in Designer
-- Click Template (bottom of the screen)
-- On the screen that opens, select the "Template" option in the lower tab of the "Parameters" option
-- Pass the content below in the json option:
+- Click **"Template"** (bottom of the screen)
+- On the screen that opens, select the **"Template"** option in the lower tab of the **"Parameters"** option
+- Pass the content below in the **json** option:
 ```yml
 ---
 AWSTemplateFormatVersion: 2010-09-09
@@ -217,18 +217,18 @@ Resources:
 - Click the "refresh diagram" icon in the upper right corner of the screen (round arrow icon).we will have the following vision.
 ![image](https://user-images.githubusercontent.com/33422115/148555804-ff078e28-a624-4976-9b13-ccdb18493cfd.png)
 - Click the Cloud with a arrow up in the top left corner to save the stack
-- Next
+- **Next**
 - In "specify stack details" fill in the following way:
   - **Stack name** - Add stack name, in my example(ekscicdiamstack)
   - **Parameters** - Name of the role you created in the step "IAM and Setup", in our case EKSkubectl
 > step 2 (specify stack details)
-- we haven't changed anything, click next
+- we haven't changed anything, click **"next"**
 > step 3 (configure stack options)
-- under Capabilities, select "i acknowledge that AWS CloudFormation might create IAM resources."
-- Create stack
+- under Capabilities, select **"i acknowledge that AWS CloudFormation might create IAM resources."**
+- **Create stack**
 - <a name="teste"></a> resources on the tab, copy for later use CodeBuildServiceRole and CodePipelineServiceRole:
-  - ekscicdiamstack-CodeBuildServiceRole-X0X0X00X0X0X
-  - ekscicdiamstack-CodePipelineServiceRole-X0X0X00X0X0X
+  - **ekscicdiamstack-CodeBuildServiceRole-X0X0X00X0X0X**
+  - **ekscicdiamstack-CodePipelineServiceRole-X0X0X00X0X0X**
 
 
 1.4. **Edit Configmap**
@@ -253,10 +253,10 @@ ____
 
 In our test example we will deploy a web page with nginx. to work, our bitbucket project needs to have the following files:
 
-  - buildspec.yml - source code compilation specification files
-  - Dockerfile - Dockerfile is a text file with instructions to create our docker image
-  - hello-k8s.yml - manifest file containing our service and deployment
-  - index.html - nginx default page that will go up in our example
+  - **buildspec.yml** - source code compilation specification files
+  - **Dockerfile** - Dockerfile is a text file with instructions to create our docker image
+  - **hello-k8s.yml** - manifest file containing our service and deployment
+  - **index.html** - nginx default page that will go up in our example
 
 
 >All files described here are available in this repository..
@@ -265,44 +265,44 @@ In our test example we will deploy a web page with nginx. to work, our bitbucket
 
 The ECR service serves to store the images created in our project. we will create a repository in the steps below:
 
-- Select the ECR service, click on "Repositories".
-- click in "Create Repository"
-- In visibility settings, select "Private"
+- Select the ECR service, click on **"Repositories"**.
+- click in **"Create Repository"**
+- In visibility settings, select **"Private"**
 - add a name to your repository, in my example(aws-pipeline)
-- click create repository
+- click **create repository**
 
 2.3. **CodePipeline**
 
-*create connection whith Bitbucket*
+1.1. **create connection whith Bitbucket**
 
 - Select service Codepipeline
-- Click on "Settings" and select "connections"
+- Click on **"Settings"** and select **"connections"**
 
 ![codepipeline-2](https://user-images.githubusercontent.com/33422115/149011172-fec35be0-58ca-47bd-8b63-e90c0cf102e4.png)
 
-- click "create connection"
+- click **"create connection"**
 
 ![codepipeline-3](https://user-images.githubusercontent.com/33422115/149011355-df0efef3-68ce-40f3-805a-a513fb383431.png)
 
 
-  - 1 - Select a provider = Bitbucket
-  - 2 - connection namw = enter a name for the connection
-  - 3 - Click "Connect to Bibucket"
+  - 1 - **Select a provider** = Bitbucket
+  - 2 - **connection name** = enter a name for the connection
+  - 3 - Click "**Connect to Bibucket**"
 
 ![create-bitbucket](https://user-images.githubusercontent.com/33422115/149011528-93acc505-3df4-45fc-9883-e3c80c18fe5b.png)
 
   - In the new tab, fill in as shown in the image below:
-  - select "install app"
+  - select **"install app"**
 
 - ![codepipeline-6](https://user-images.githubusercontent.com/33422115/149014039-55a9d7f0-87ee-46d2-a929-08fe7aefdee2.png)
 
   - Select you workspace
-  - 1 - click "Grant access"
+  - 1 - click **"Grant access"**
 
 -![CODEPIPELINE 7](https://user-images.githubusercontent.com/33422115/149014239-9a5903d9-abef-4f22-939b-5b8e05d179e8.png)
 
 
-- Click "connect"
+- Click **"connect"**
 
 ![CODEPIPELINE 8](https://user-images.githubusercontent.com/33422115/149015032-307a5ef8-63b4-438f-9599-00b60196dc9b.png)
 
@@ -310,13 +310,12 @@ The ECR service serves to store the images created in our project. we will creat
 
 ![CODEPIPELINE 9](https://user-images.githubusercontent.com/33422115/149015257-6f246971-aed6-465f-a75a-25750d94e54a.png)
 
-*Create policy*
-
+1.2. *Create policy*
 
 Now let's create a policy to be able to use codestar, the app required for communication between bitbucket and codepipeline
 
-- Go to IAM, in the left pane click on policy.
-- In the next step click on "create police" and add the content below in the json option.
+- Go to **IAM**, in the left pane click on **policy**.
+- In the next step click on **"create police"** and add the content below in the json option.
 
 ``` json
 {
@@ -330,10 +329,10 @@ Now let's create a policy to be able to use codestar, the app required for commu
     ]
 }
 ```
->[ATTENTION!]
+>**[ATTENTION!]**
 > add your ARN replacing the above
 
-Skip to the third step of the process and access a name for your policy, in our example the name will be "connection-permissions-bitbucket" responsible for a description if necessary and click on "create policy"
+- Skip to the third step of the process and access a name for your policy, in our example the name will be "connection-permissions-bitbucket" responsible for a description if necessary and click on **"create policy"**
 
 
 > step 1 (Choose pipeline settings)
@@ -347,32 +346,32 @@ Skip to the third step of the process and access a name for your policy, in our 
   
 > step 2 (add source step)
 - *origin*
+
   - **source provider** - This is where you stored the pipeline input artifacts. choose Bitbucket
   - **connection** - click "Connect Bitbucket"
-    - In the new tab that will open, with the title "Create a Connection", give a name to the connection that we are going to create with bitbucket and click on "connect to Bitbucket"
-    - In the new tab that will open, titled "Connect to Bitbucket", click on "Install a new app". one more tab will open like the screen below:
+  - In the new tab that will open, with the title **"Create a Connection"**, give a name to the connection that we are going to create with bitbucket and click on **"connect to Bitbucket"**
+  - In the new tab that will open, titled **"Connect to Bitbucket"**, click on **"Install a new app"**. one more tab will open like the screen below:
     
-    - ![2](https://user-images.githubusercontent.com/33422115/148586400-08e3b667-8a9e-4844-a2d9-e9ff4853a837.jpg)
+  - ![2](https://user-images.githubusercontent.com/33422115/148586400-08e3b667-8a9e-4844-a2d9-e9ff4853a837.jpg)
  
-    - Select your workspace and click "Grant access"
-    - again on the screen #Connect to Bitbucket", click "to connect"
-    - again at the source, we will see the following message in a green box:
+  - Select your workspace and click **"Grant access"**
+  - again on the screen **"Connect to Bitbucket"**, click **"to connect"**
+  - again at the source, we will see the following message in a green box:
 
-    ![green checkbox](https://user-images.githubusercontent.com/33422115/148785548-9473ba48-0428-4e53-afa2-8ccfbcf4f4b7.png)
-
+   ![green checkbox](https://user-images.githubusercontent.com/33422115/148785548-9473ba48-0428-4e53-afa2-8ccfbcf4f4b7.png)
 
     > ATTENTION!
-    > go back to IAM and change codestar's launch policy with your "arn:aws:codestar" generated in that process.
+    > go back to IAM and change codestar's launch policy with your **"arn:aws:codestar"** generated in that process.
 
-  - repository name
-    - Choose a repository in your Bitbucket account.
-  - branch name
-    - Choose a repository branch.
-  - Change detection options
-    - check a box "Start pipeline on source code change" if you want Automatically start the pipeline when a source code change occurs. If disabled, the pipeline will only run if started manually or on a schedule.
-  - Output artifact format
-    - select "full clone"
-    - click Next
+   - repository name
+   - Choose a repository in your Bitbucket account.
+   - branch name
+   - Choose a repository branch.
+   - Change detection options
+   - check a box "Start pipeline on source code change" if you want Automatically start the pipeline when a source code change occurs. If disabled, the pipeline will only run if started manually or on a schedule.
+   - Output artifact format
+   - select "full clone"
+   - click Next
    
 > Step 3 (Add build step)
 - *Compilation* 
