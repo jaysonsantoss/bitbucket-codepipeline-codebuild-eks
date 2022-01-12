@@ -214,8 +214,9 @@ Resources:
                   - ecr:CompleteLayerUpload
 
 ```
-- Click the "refresh diagram" icon in the upper right corner of the screen (round arrow icon).we will have the following vision.
+- Click the **"refresh diagram"** icon in the upper right corner of the screen (round arrow icon).we will have the following vision.
 ![image](https://user-images.githubusercontent.com/33422115/148555804-ff078e28-a624-4976-9b13-ccdb18493cfd.png)
+
 - Click the Cloud with a arrow up in the top left corner to save the stack
 - **Next**
 - In "specify stack details" fill in the following way:
@@ -423,18 +424,6 @@ _____
 # Sumary
 
 This document sought to briefly explain each process to be performed to use the resources described here to generate an automated pipeline for deploying containers in an EKS cluster on amazon, any suggestion will be welcome.
-
-
-
-
-
- 
-￼
-
-
-
-
-
 
 
 
