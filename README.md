@@ -328,8 +328,8 @@ Now let's create a policy to be able to use codestar, the app required for commu
     ]
 }
 ```
->##########################ATTENTION!###############################
->add your ARN replacing the above
+>[!WARNING]
+> add your ARN replacing the above
 
 Skip to the third step of the process and access a name for your policy, in our example the name will be "connection-permissions-bitbucket" responsible for a description if necessary and click on "create policy"
 
