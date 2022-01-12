@@ -48,7 +48,7 @@ AWS CodePipeline is a fully managed continuous delivery service that helps you a
 
 In this step we will create the rules so that we can use the kubectl command in our EKS cluster.
 
-- Go to IAM, in the left pane click on **policy.
+- Go to IAM, in the left pane click on **policy**.
 - In the next step click on **"create police"** and add the content below in the json option.
 ``` json
 {
@@ -67,8 +67,8 @@ In this step we will create the rules so that we can use the kubectl command in 
 1.2. **Create role**
 
 - Back to the main IAM panel, select the role option.
-- Click on "create role" and select the option "Another AWS account"
-- Enter your account ID. you can view your id in the upper left corner of the aws page or by executing the command below:
+- Click on **"create role"** and select the option **"Another AWS account"
+- Enter your **account ID**. you can view your id in the upper left corner of the aws page or by executing the command below:
 ``` bash
 # aws sts get-caller-identity
 
@@ -81,6 +81,7 @@ In this step we will create the rules so that we can use the kubectl command in 
 - click **"next"** after entering you account ID.
 - In this new tab, filter by the name of your previously created policy and select it to add our role.
 ![image](https://user-images.githubusercontent.com/33422115/148550143-ba5e6967-c3b7-42a9-9adc-97a109fbf3ee.png)
+
 - Add a name to your role and a description if necessary. in our example the policy name will be EKSkubectl.
 - again on the IAM home screen, click on **"role"**, search for and select your role to access its summary
 - Copy Role ARN (arn:aws:iam::000000000000:role/EKSKubectl)
