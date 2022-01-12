@@ -229,7 +229,8 @@ Resources:
 - <a name="teste"></a> resources on the tab, copy for later use CodeBuildServiceRole and CodePipelineServiceRole:
   - ekscicdiamstack-CodeBuildServiceRole-X0X0X00X0X0X
   - ekscicdiamstack-CodePipelineServiceRole-X0X0X00X0X0X
-____
+
+
 1.4. **Edit Configmap**
 
 - On your terminal with access to your EKS, edit your
@@ -245,7 +246,8 @@ ____
 ```
 - Save file
 ____
-  2.  ## **Set Pipeline**
+
+2.  ## **Set Pipeline**
 
 2.1. **Bitbucket**
 
@@ -328,7 +330,7 @@ Now let's create a policy to be able to use codestar, the app required for commu
     ]
 }
 ```
->[!WARNING]
+>[ATTENTION!]
 > add your ARN replacing the above
 
 Skip to the third step of the process and access a name for your policy, in our example the name will be "connection-permissions-bitbucket" responsible for a description if necessary and click on "create policy"
@@ -359,7 +361,7 @@ Skip to the third step of the process and access a name for your policy, in our 
     ![green checkbox](https://user-images.githubusercontent.com/33422115/148785548-9473ba48-0428-4e53-afa2-8ccfbcf4f4b7.png)
 
 
-    >#########################ATTENTION!######################
+    > ATTENTION!
     > go back to IAM and change codestar's launch policy with your "arn:aws:codestar" generated in that process.
 
   - repository name
