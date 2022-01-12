@@ -9,11 +9,11 @@ This project aims to show the necessary steps to create a ci/cd structure using 
 
 Prior to executing this project, it is necessary that you already have the following things:
 
-* **Account AWS
+* Account AWS
 
-* **Account Bitbucket
+* Account Bitbucket
 
-* **Cluster EKS**
+* Cluster EKS
 
 
 # Descriptions of services that will be used
