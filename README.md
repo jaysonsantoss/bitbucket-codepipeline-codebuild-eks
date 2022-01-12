@@ -403,12 +403,11 @@ Now let's create a policy to be able to use codestar, the app required for commu
       *Environment variables- optional* 
        - click **"Add environment"** 
        - add the 5 variables below changing according to your project:
-         - REPOSITORY_URI= 441973536412.dkr.ecr.eu-west-1.amazonaws.com/
-         - aws-pipeline-repo
-         - REPOSITORY_NAME=aws-pipeline
-         - REPOSITORY_BRANCH=main
-         - EKS_CLUSTER_NAME=EKS-Workshop
-         - EKS_KUBECTL_ROLE_ARN=arn:aws:iam::000000000000:role/EKSKubectl
+         - REPOSITORY_URI= XXXXXXXXXXXX.dkr.ecr.eu-east-1.amazonaws.com/aws-pipeline-repo - (your previously created ECR repository)
+         - REPOSITORY_NAME=aws-pipeline - (Name of your repository on Bitbucket)
+         - REPOSITORY_BRANCH=main - (Your branch name)
+         - EKS_CLUSTER_NAME=EKS-Workshop - (You Cluster EKS name)
+         - EKS_KUBECTL_ROLE_ARN=arn:aws:iam::000000000000:role/EKSKubectl - (You ROLE_ARN)
   - **Build Type** - Select **"sigle build"**
   - click **"Next"**
 
