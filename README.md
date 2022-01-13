@@ -425,6 +425,10 @@ _____
 
 This document sought to briefly explain each process to be performed to use the resources described here to generate an automated pipeline for deploying containers in an EKS cluster on amazon, any suggestion will be welcome.
 
+# Special thanks
+
+Special thanks to Renan toesch magalhaes for his contribution to this project.
+https://github.com/renantmagalhaes
 
 
 
