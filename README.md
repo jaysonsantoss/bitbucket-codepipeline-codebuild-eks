@@ -67,7 +67,7 @@ In this step we will create the rules so that we can use the kubectl command in 
 1.2. **Create role**
 
 - Back to the main IAM panel, select the role option.
-- Click on **"create role"** and select the option **"Another AWS account"
+- Click on **"create role"** and select the option **"Another AWS account"**
 - Enter your **account ID**. you can view your id in the upper left corner of the aws page or by executing the command below:
 ``` bash
 # aws sts get-caller-identity
