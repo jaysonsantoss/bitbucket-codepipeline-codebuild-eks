@@ -430,7 +430,7 @@ This document sought to briefly explain each process to be performed to use the 
 
 Special thanks to Renan Toesqui Magalhães and Valmir Silva Junior for his contribution to this project.
 https://github.com/renantmagalhaes
-Https://github.com/
+https://github.com/valmirdasilvajr
 
 
 
