@@ -1,7 +1,8 @@
 # bitbucket-codepipeline-codebuild-eks
 
-ci/cd project with the tools mentioned in the title
+The purpose of this document is to demonstrate an example of implementing a ci/cd framework using bitbucket and services on AWS. this project can also be used as a basis for full implementation using AWS if you replace your Bitbucket with a CodeCommit, for example. initially creates this document because I couldn't easily find information on how to integrate bitbucket with AWS tools for a deployment to EKS.
 
+The main tools used in this project are bitbucket, codepipeline, codebuild, ECR and EKS.
 This project aims to show the necessary steps to create a ci/cd structure using bitbucket, codepipeline, codebuild, ECR and EKS.
 
 
