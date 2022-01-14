@@ -427,9 +427,9 @@ This document sought to briefly explain each process to be performed to use the 
 
 # Special thanks
 
-Special thanks to Renan Toesqui Magalhães and Valmir Silva Junior for his contribution to this project.
-https://github.com/renantmagalhaes
-https://github.com/valmirdasilvajr
+Special thanks to **Renan Toesqui Magalhães** and **Valmir da Silva Junior** for his contribution to this project.
+- https://github.com/renantmagalhaes
+- https://github.com/valmirdasilvajr
 
 
 
