@@ -431,5 +431,10 @@ Special thanks to **Renan Toesqui Magalhães** and **Valmir da Silva Junior** fo
 - https://github.com/renantmagalhaes
 - https://github.com/valmirdasilvajr
 
+# Reference to this documentation
+
+To generate this documentation we use the document below as a basis:
+- https://www.eksworkshop.com/intermediate/220_codepipeline/
+
 
 
