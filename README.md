@@ -2,7 +2,7 @@
 
 ci/cd project with the tools mentioned in the title
 
-This project aims to show the necessary steps to create a ci/cd structure using bitbucket, codepipeline, codebuild, ECS and EKS.
+This project aims to show the necessary steps to create a ci/cd structure using bitbucket, codepipeline, codebuild, ECR and EKS.
 
 
 # Requirements
@@ -427,7 +427,7 @@ This document sought to briefly explain each process to be performed to use the 
 
 # Special thanks
 
-Special thanks to Renan toesch magalhaes for his contribution to this project.
+Special thanks to Renan Toesqui Magalhães for his contribution to this project.
 https://github.com/renantmagalhaes
 
 
